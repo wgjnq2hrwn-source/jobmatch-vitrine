@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Emploi local, rapide, clair.</h1>
+      <p class="lead">{{ site.tagline }} — Logistique & industrie autour de {{ site.city }}.</p>
+      <div class="hero-actions">
+        <a class="btn" href="/services">Voir nos services</a>
+        <a class="btn ghost" href="/contact">Nous contacter</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="stat-num">+200</div><div class="muted">offres / mois</div></div>
+        <div class="stat"><div class="stat-num">24/7</div><div class="muted">accessibilité</div></div>
+        <div class="stat"><div class="stat-num">Local</div><div class="muted">Mulhouse & alentours</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>✨ Comment ça marche ?</h3>
+      <ol class="steps">
+        <li>Tu choisis un métier (cariste, préparateur, opérateur…)</li>
+        <li>Tu reçois des offres adaptées dans ta zone</li>
+        <li>Tu contactes rapidement les entreprises</li>
+      </ol>
+      <div class="note">
+        Astuce : sur Telegram, tu peux chercher par mot-clé et par ville.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Nos services</h2>
+    <p class="muted">Une approche simple : des offres + de l’orientation + un canal rapide.</p>
+
+    <div class="grid3">
+      {% for s in services %}
+      <div class="card">
+        <h3>{{ s.title }}</h3>
+        <p class="muted">{{ s.desc }}</p>
+        <ul>
+          {% for b in s.bullets %}
+          <li>{{ b }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="center">
+      <a class="btn" href="/services">Détails des services</a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <h2>Réalisations</h2>
+    <p class="muted">Quelques briques déjà en place pour lancer vite un MVP solide.</p>
+
+    <div class="grid3">
+      {% for p in projects %}
+      <div class="card">
+        <div class="pill">{{ p.meta }}</div>
+        <h3>{{ p.title }}</h3>
+        <p class="muted">{{ p.desc }}</p>
+        <div class="tags">
+          {% for t in p.tags %}
+          <span class="tag">{{ t }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="center">
+      <a class="btn ghost" href="/realisations">Voir tout</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>FAQ</h2>
+    <div class="faq">
+      {% for item in faq %}
+      <details class="card">
+        <summary><b>{{ item.q }}</b></summary>
+        <p class="muted">{{ item.a }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
