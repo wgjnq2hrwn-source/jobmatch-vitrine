@@ -1,98 +1,120 @@
-{% extends "base.html" %}
-{% block content %}
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <h1>Emploi local, rapide, clair.</h1>
-      <p class="lead">{{ site.tagline }} — Logistique & industrie autour de {{ site.city }}.</p>
-      <div class="hero-actions">
-        <a class="btn" href="/services">Voir nos services</a>
-        <a class="btn ghost" href="/contact">Nous contacter</a>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JobMatch – Emploi local à Mulhouse</title>
+  <meta name="description" content="JobMatch connecte candidats et employeurs à Mulhouse (logistique & industrie). Offres locales, rapide, clair." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="top">
+    <div class="container">
+      <div class="brand">
+        <div class="logo">JM</div>
+        <div>
+          <h1>JobMatch</h1>
+          <p class="muted">Logistique & industrie • Mulhouse & alentours</p>
+        </div>
+      </div>
+
+      <h2 class="hero-title">Emploi local, rapide, clair.</h2>
+      <p class="hero-sub">
+        Candidats : trouve des offres adaptées à ton métier et ta ville.<br />
+        Employeurs : publie une offre et reçois des candidats.
+      </p>
+
+      <div class="cta">
+        <a class="btn primary" href="#services">Voir nos services</a>
+        <a class="btn" href="#contact">Nous contacter</a>
       </div>
 
       <div class="stats">
-        <div class="stat"><div class="stat-num">+200</div><div class="muted">offres / mois</div></div>
-        <div class="stat"><div class="stat-num">24/7</div><div class="muted">accessibilité</div></div>
-        <div class="stat"><div class="stat-num">Local</div><div class="muted">Mulhouse & alentours</div></div>
+        <div class="stat"><strong>+200</strong><span>offres / mois</span></div>
+        <div class="stat"><strong>24/7</strong><span>accessibilité</span></div>
+        <div class="stat"><strong>Local</strong><span>Mulhouse & alentours</span></div>
       </div>
     </div>
+  </header>
 
-    <div class="card">
-      <h3>✨ Comment ça marche ?</h3>
-      <ol class="steps">
-        <li>Tu choisis un métier (cariste, préparateur, opérateur…)</li>
-        <li>Tu reçois des offres adaptées dans ta zone</li>
-        <li>Tu contactes rapidement les entreprises</li>
-      </ol>
-      <div class="note">
-        Astuce : sur Telegram, tu peux chercher par mot-clé et par ville.
+  <main>
+    <section class="section" id="how">
+      <div class="container">
+        <h3>Comment ça marche ?</h3>
+        <ol class="steps">
+          <li><strong>Tu choisis</strong> un métier (cariste, préparateur, opérateur, maintenance…)</li>
+          <li><strong>Tu reçois</strong> des offres adaptées à ta zone</li>
+          <li><strong>Tu postules</strong> rapidement, avec un message clair</li>
+        </ol>
+        <p class="note">Astuce : sur Telegram, tu peux chercher par mot-clé et par ville.</p>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section">
-  <div class="container">
-    <h2>Nos services</h2>
-    <p class="muted">Une approche simple : des offres + de l’orientation + un canal rapide.</p>
+    <section class="section alt" id="services">
+      <div class="container">
+        <h3>Nos services</h3>
+        <div class="cards">
+          <article class="card">
+            <h4>🔎 Offres locales</h4>
+            <p>Recherche d’offres Mulhouse / Grand Est par mots-clés.</p>
+            <ul>
+              <li>Logistique, industrie, maintenance</li>
+              <li>Intérim / CDI / CDD</li>
+              <li>Filtrage par ville</li>
+            </ul>
+          </article>
 
-    <div class="grid3">
-      {% for s in services %}
-      <div class="card">
-        <h3>{{ s.title }}</h3>
-        <p class="muted">{{ s.desc }}</p>
-        <ul>
-          {% for b in s.bullets %}
-          <li>{{ b }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endfor %}
-    </div>
+          <article class="card">
+            <h4>🧑‍💼 Candidats</h4>
+            <p>Un profil simple pour postuler vite.</p>
+            <ul>
+              <li>Compétences + disponibilités</li>
+              <li>CV (bientôt)</li>
+              <li>Alertes (bientôt)</li>
+            </ul>
+          </article>
 
-    <div class="center">
-      <a class="btn" href="/services">Détails des services</a>
-    </div>
-  </div>
-</section>
-
-<section class="section alt">
-  <div class="container">
-    <h2>Réalisations</h2>
-    <p class="muted">Quelques briques déjà en place pour lancer vite un MVP solide.</p>
-
-    <div class="grid3">
-      {% for p in projects %}
-      <div class="card">
-        <div class="pill">{{ p.meta }}</div>
-        <h3>{{ p.title }}</h3>
-        <p class="muted">{{ p.desc }}</p>
-        <div class="tags">
-          {% for t in p.tags %}
-          <span class="tag">{{ t }}</span>
-          {% endfor %}
+          <article class="card">
+            <h4>🏭 Employeurs</h4>
+            <p>Publie une offre et reçois des candidats.</p>
+            <ul>
+              <li>Formulaire rapide</li>
+              <li>Tri par métier</li>
+              <li>Contact direct</li>
+            </ul>
+          </article>
         </div>
       </div>
-      {% endfor %}
-    </div>
+    </section>
 
-    <div class="center">
-      <a class="btn ghost" href="/realisations">Voir tout</a>
-    </div>
-  </div>
-</section>
+    <section class="section" id="contact">
+      <div class="container">
+        <h3>Contact</h3>
+        <p>Tu veux participer, poster des offres ou être partenaire ?</p>
 
-<section class="section">
-  <div class="container">
-    <h2>FAQ</h2>
-    <div class="faq">
-      {% for item in faq %}
-      <details class="card">
-        <summary><b>{{ item.q }}</b></summary>
-        <p class="muted">{{ item.a }}</p>
-      </details>
-      {% endfor %}
+        <div class="contact-box">
+          <div>
+            <p class="muted">Email</p>
+            <p><strong>contact@jobmatch.fr</strong> (à remplacer)</p>
+          </div>
+          <div>
+            <p class="muted">Telegram</p>
+            <p><strong>@JobMatch</strong> (à remplacer)</p>
+          </div>
+        </div>
+
+        <p class="tiny muted">
+          Prochaine étape : formulaire + base de données + espace candidat/employeur.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 JobMatch — Mulhouse</p>
     </div>
-  </div>
-</section>
-{% endblock %}
+  </footer>
+</body>
+</html>
